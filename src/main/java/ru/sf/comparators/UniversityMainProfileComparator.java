@@ -6,6 +6,8 @@ import ru.sf.models.University;
 public class UniversityMainProfileComparator implements UniversityComparatorInterface {
     @Override
     public int compare(University o1, University o2) {
-        return StringUtils.compare(o1.getMainProfile().toString(), o2.getMainProfile().toString());
+        if (o1.getMainProfile() == null) return 1;
+        else if (o2.getMainProfile() == null) return -1;
+        else return StringUtils.compare(o1.getMainProfile().toString(), o2.getMainProfile().toString());
     }
 }

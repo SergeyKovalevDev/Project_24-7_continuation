@@ -4,6 +4,7 @@ public enum UniversityComparatorEnum {
     ID,
     FULL_NAME,
     SHORT_NAME,
-    PROFILE,
-    YEAR
+    YEAR_OF_FOUNDATION,
+    MAIN_PROFILE,
+    WEBSITE
 }

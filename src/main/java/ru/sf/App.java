@@ -20,8 +20,8 @@ public class App {
         properties = new PropertiesReader().loadProperties(propertiesFilename);
         if (properties != null) {
             XLSXParser xlsxParser = XLSXParser.getInstance();
-            Comparator<Student> studentComparator = ComparatorSelector.getStudentComparator(StudentComparatorEnum.BY_FULL_NAME);
-            Comparator<University> universityComparator = ComparatorSelector.getUniversityComparator(UniversityComparatorEnum.BY_YEAR_OF_FOUNDATION);
+            Comparator<Student> studentComparator = ComparatorSelector.getStudentComparator(StudentComparatorEnum.FULL_NAME);
+            Comparator<University> universityComparator = ComparatorSelector.getUniversityComparator(UniversityComparatorEnum.YEAR_OF_FOUNDATION);
 
             xlsxParser.getAllStudentsFromXLSX(sourceFilename)
                     .stream()
