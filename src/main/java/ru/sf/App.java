@@ -6,6 +6,7 @@ import ru.sf.models.Student;
 import ru.sf.models.University;
 import ru.sf.parser.XLSXParser;
 import ru.sf.utils.ComparatorSelector;
+import ru.sf.utils.JsonUtil;
 import ru.sf.utils.PropertiesReader;
 
 import java.util.Comparator;
@@ -18,6 +19,17 @@ public class App {
         String sourceFilename = "src/main/resources/universityInfo.xlsx";
         String propertiesFilename = "app.properties";
         properties = new PropertiesReader().loadProperties(propertiesFilename);
+
+        Student student = new Student.Builder()
+                .withUniversityId("Id")
+                .withFullName("FullName")
+                .withCurrentCourseNumber(1)
+                .withAvgExamScore(4.0F)
+                .build();
+
+        System.out.println(JsonUtil.studentToJson(student));
+
+/*
         if (properties != null) {
             XLSXParser xlsxParser = XLSXParser.getInstance();
             Comparator<Student> studentComparator = ComparatorSelector.getStudentComparator(StudentComparatorEnum.FULL_NAME);
@@ -33,5 +45,6 @@ public class App {
                     .sorted(universityComparator)
                     .forEach(System.out::println);
         }
+*/
     }
 }
